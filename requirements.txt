@@ -1,0 +1,7 @@
+PyPDF2
+streamlit
+langchain
+faiss-cpu
+langchain-google-genai
+langchain-community
+tiktoken
