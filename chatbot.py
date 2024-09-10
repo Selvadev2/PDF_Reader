@@ -17,7 +17,7 @@ st.markdown("""
 {
     visibility:hidden;
 }
-</style>""")
+</style>""", unsafe_allow_html= True)
 
 # extract all the pdfs
 def extract_pdf(files):
