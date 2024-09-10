@@ -9,7 +9,7 @@ from langchain.prompts import PromptTemplate
 import streamlit as st
 import numpy as np
 
-st.set_page_config(page_title= 'pdf_reader_chatbot')
+st.set_page_config(page_title= 'pdf_reader_chatbot', layout= "wide")
 
 st.markdown("""
 <style>
@@ -17,6 +17,10 @@ st.markdown("""
 {
     visibility:hidden;
 }
+.styles_terminalButton__JBj5T
+{
+    visibility:hidden;
+}          
 </style>""", unsafe_allow_html= True)
 
 # extract all the pdfs
