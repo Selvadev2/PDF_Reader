@@ -11,6 +11,14 @@ import numpy as np
 
 st.set_page_config(page_title= 'pdf_reader_chatbot')
 
+st.markdown("""
+<style>
+.st-emotion-cache-15ecox0.ezrtsby0          
+{
+    visibility:hidden;
+}
+</style>""")
+
 # extract all the pdfs
 def extract_pdf(files):
     text = ''
