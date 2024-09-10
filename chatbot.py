@@ -35,8 +35,7 @@ def embedding(chunk, api_key):
 def model(api_key):
     prompt = """Answer the question as detail as possible from the input content. If Answer is not present in the content dont give wrong anwers. 
     content : \n{context} \n
-    question : \n{question} \n
-    answer :
+    question : \n{question} \n    answer :
 """
     model = ChatGoogleGenerativeAI(model = "gemini-pro", google_api_key = api_key)
     prompt_temp = PromptTemplate(template= prompt, input_variables= ['context', 'question'])
