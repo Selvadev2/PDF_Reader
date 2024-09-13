@@ -33,17 +33,29 @@ httplib2==0.22.0
 httpx==0.27.0
 idna==3.8
 Jinja2==3.1.4
+<<<<<<< HEAD
 jiter==0.5.0
+=======
+>>>>>>> 47cdbba7d0074fe61dfec2eb4316e3d1808bbbfb
 jsonpatch==1.33
 jsonpointer==3.0.0
 jsonschema==4.23.0
 jsonschema-specifications==2023.12.1
+<<<<<<< HEAD
 langchain==0.2.16
 langchain-community==0.2.16
 langchain-core==0.2.39
 langchain-google-genai==1.0.10
 langchain-text-splitters==0.2.2
 langsmith==0.1.118
+=======
+langchain==0.2.14
+langchain-community==0.2.12
+langchain-core==0.2.35
+langchain-google-genai==1.0.10
+langchain-text-splitters==0.2.2
+langsmith==0.1.104
+>>>>>>> 47cdbba7d0074fe61dfec2eb4316e3d1808bbbfb
 markdown-it-py==3.0.0
 MarkupSafe==2.1.5
 marshmallow==3.22.0
@@ -52,7 +64,10 @@ multidict==6.0.5
 mypy-extensions==1.0.0
 narwhals==1.5.5
 numpy==1.26.4
+<<<<<<< HEAD
 openai==1.44.1
+=======
+>>>>>>> 47cdbba7d0074fe61dfec2eb4316e3d1808bbbfb
 orjson==3.10.7
 packaging==24.1
 pandas==2.2.2
@@ -69,11 +84,17 @@ Pygments==2.18.0
 pyparsing==3.1.4
 PyPDF2==3.0.1
 python-dateutil==2.9.0.post0
+<<<<<<< HEAD
 python-dotenv==1.0.1
 pytz==2024.1
 PyYAML==6.0.2
 referencing==0.35.1
 regex==2024.9.11
+=======
+pytz==2024.1
+PyYAML==6.0.2
+referencing==0.35.1
+>>>>>>> 47cdbba7d0074fe61dfec2eb4316e3d1808bbbfb
 requests==2.32.3
 rich==13.7.1
 rpds-py==0.20.0
@@ -84,7 +105,10 @@ sniffio==1.3.1
 SQLAlchemy==2.0.32
 streamlit==1.37.1
 tenacity==8.5.0
+<<<<<<< HEAD
 tiktoken==0.7.0
+=======
+>>>>>>> 47cdbba7d0074fe61dfec2eb4316e3d1808bbbfb
 toml==0.10.2
 tornado==6.4.1
 tqdm==4.66.5
@@ -94,5 +118,8 @@ tzdata==2024.1
 uritemplate==4.1.1
 urllib3==2.2.2
 watchdog==4.0.2
+<<<<<<< HEAD
 xlrd==2.0.1
+=======
+>>>>>>> 47cdbba7d0074fe61dfec2eb4316e3d1808bbbfb
 yarl==1.9.4
