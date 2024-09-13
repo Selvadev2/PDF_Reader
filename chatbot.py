@@ -16,6 +16,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
 st.set_page_config(page_title= 'pdf_reader_chatbot', layout= "wide")
 
 st.markdown("""
@@ -102,8 +103,8 @@ def main():
         docs_file = st.file_uploader('upload pdf files:', accept_multiple_files= True, key = 'files')
         model_selection = st.radio("select the model:", options = ['gemini','chatgpt'])
             
-        api_key_google = os.getenv("api_key_g")
-        api_key_openai = os.getenv("api_key_o")
+        api_key_google = st.secrets["api_key_g"] # os.getenv("api_key_g")
+        api_key_openai = st.secrets["api_key_o"] # os.getenv("api_key_o")
 
 
         if st.button('submit', key= 'submit button') and docs_file:
