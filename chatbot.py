@@ -106,7 +106,6 @@ def main():
         api_key_google = st.secrets["api_key_g"] # os.getenv("api_key_g")
         api_key_openai = st.secrets["api_key_o"] # os.getenv("api_key_o")
 
-
         if st.button('submit', key= 'submit button') and docs_file:
             with st.spinner('processing........'):
                 pdf = extract_pdf(docs_file)

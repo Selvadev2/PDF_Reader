@@ -4,4 +4,4 @@ pdf_reader.mp4
 data_science.pdf
 chatbot_chatgpt.py
 .env
-.streamlit\secrets.toml
+.streamlit/secrets.toml
