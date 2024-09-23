@@ -10,7 +10,7 @@ from langchain.llms import OpenAI
 from langchain.chains.question_answering import load_qa_chain
 from langchain.prompts import PromptTemplate
 import streamlit as st
-import numpy as np
+import numpy as np 
 import os
 from dotenv import load_dotenv
 
@@ -100,7 +100,7 @@ def main():
     
     with st.sidebar:
         st.header("Menu:")
-        docs_file = st.file_uploader('upload pdf files:', accept_multiple_files= True, key = 'files')
+        docs_file = st.file_uploader('upload pdf files:', accept_multiple_files= True, type = 'pdf',key = 'files')
         model_selection = st.radio("select the model:", options = ['gemini','chatgpt'])
             
         api_key_google = st.secrets["api_key_g"] # os.getenv("api_key_g")
