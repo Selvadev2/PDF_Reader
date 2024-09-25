@@ -30,7 +30,7 @@ def extract_pdf(files):
         with tempfile.NamedTemporaryFile(delete=False) as temp_file:
             temp_file.write(uploaded_file.read())
             temp_file_path = temp_file.name
-            pages = convert_from_path(temp_file_path, dpi= 200)
+            pages = convert_from_path(temp_file_path, dpi= 200, poppler_path= "C:/Users/DIPL/poppler-24.07.0/Library/bin")
             for i in pages:
                 text += pytesseract.image_to_string(i, lang= language_str)
         os.remove(temp_file_path)
@@ -57,10 +57,11 @@ def model(api_key):
     Content: 
     {context} 
 
-    Question (in {language}): 
+    Question (in {language} or English): 
     {question} 
 
-    Answer (in {language}): 
+    Answer (in {language} and in English):
+
     """
     model = ChatGoogleGenerativeAI(model = "gemini-pro", google_api_key = api_key)
     prompt_temp = PromptTemplate(template= prompt, input_variables= ['context', 'question', 'language'])
@@ -88,10 +89,10 @@ def model_openai(api_key_openai):
     Content: 
     {context} 
 
-    Question (in English or {language}): 
+    Question (in {language} or English): 
     {question} 
 
-    Answer (in {language}): 
+    Answer (in {language} and English): 
     """
     model = ChatOpenAI(model_name = "gpt-3.5-turbo", openai_api_key = api_key_openai)
     prompt_temp = PromptTemplate(template= prompt, input_variables= ['context', 'question', 'language'])
