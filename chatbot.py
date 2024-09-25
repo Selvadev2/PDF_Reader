@@ -11,17 +11,17 @@ st.set_page_config(page_title= 'pdf_reader_chatbot', layout= "wide")
 api_key_google = st.secrets["api_key_g"] # os.getenv("api_key_g")
 api_key_openai = st.secrets["api_key_o"] # os.getenv("api_key_o")
 
-# st.markdown("""
-# <style>
-# .st-emotion-cache-15ecox0.ezrtsby0          
-# {
-#     visibility: hidden;
-# }
-# .styles_terminalButton__JBj5T
-# {
-#     visibility: hidden;
-# }          
-# </style>""", unsafe_allow_html= True)
+st.markdown("""
+<style>
+.st-emotion-cache-15ecox0.ezrtsby0          
+{
+    visibility: hidden;
+}
+.styles_terminalButton__JBj5T
+{
+    visibility: hidden;
+}          
+</style>""", unsafe_allow_html= True)
 
 st.header('PDF READER CHATBOT')
 
