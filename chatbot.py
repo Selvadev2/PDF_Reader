@@ -1,4 +1,4 @@
-import chatbot as st
+import streamlit as st
 # from dotenv import load_dotenv
 
 from utils import extract_pdf, text_splitter, embedding, embedding_openai, run_chain, run_chain_openai
