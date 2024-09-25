@@ -32,7 +32,7 @@ def extract_pdf(files):
             temp_file_path = temp_file.name
             pages = convert_from_path(temp_file_path, dpi= 200) #poppler_path= "C:/Users/DIPL/poppler-24.07.0/Library/bin"
             for i in pages:
-                text += pytesseract.image_to_string(i, lang= language_str)
+                text += pytesseract.image_to_string(i) #, lang= language_str
         os.remove(temp_file_path)
     return text
 
