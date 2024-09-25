@@ -5,3 +5,8 @@ data_science.pdf
 chatbot_chatgpt.py
 .env
 .streamlit/secrets.toml
+.env
+eng_pdf.pdf
+guj_pdf.pdf
+hindi_pdf.pdf
+mar_pdf.pdf
