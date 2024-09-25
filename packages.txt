@@ -1,2 +1,6 @@
 tesseract-ocr
 poppler-utils
+tesseract-ocr-eng  # For English (usually default)
+tesseract-ocr-hin  # For Hindi
+tesseract-ocr-mar  # For Marathi
+tesseract-ocr-guj  # For Gujarati OCR support
