@@ -9,7 +9,7 @@ from langchain_community.embeddings import OpenAIEmbeddings
 import google.generativeai as Genai 
 from langchain_community.vectorstores import FAISS
 from langchain_community.chat_models import ChatOpenAI
-from langchain.llms import OpenAI
+from langchain_community.llms import OpenAI
 from langchain.chains.question_answering import load_qa_chain
 from langchain.prompts import PromptTemplate
 import numpy as np 
@@ -21,18 +21,20 @@ import tempfile
 
 
 # extract all the pdfs
-def extract_pdf(files):
-    languages = ['guj', 'eng', 'hin', 'mar']
-    language_str = '+'.join(languages)
+def extract_pdf(files, language):
+    dic = {'English':'eng','Marathi':'mar', 'Hindi':'hin', 'Gujarati':'guj'}
+    language_str = 'eng+' + dic[language]
+    print(language_str)
     text = ''
     for uploaded_file in files:
         # Save the uploaded file to a temporary location
         with tempfile.NamedTemporaryFile(delete=False) as temp_file:
             temp_file.write(uploaded_file.read())
             temp_file_path = temp_file.name
-            pages = convert_from_path(temp_file_path, dpi= 200) #poppler_path= "C:/Users/DIPL/poppler-24.07.0/Library/bin"
+            pages = convert_from_path(temp_file_path, dpi= 200)#poppler_path= "C:/Users/DIPL/poppler-24.07.0/Library/bin"
             for i in pages:
                 text += pytesseract.image_to_string(i, lang= language_str) 
+            print(text)
         os.remove(temp_file_path)
     return text
 
@@ -52,7 +54,7 @@ def embedding( chunk, api_key):
 
 def model(api_key):
     prompt = """
-    You are an intelligent assistant capable of understanding and processing multiple languages, including English, Hindi, Marathi, Gujarati, and others. Your task is to answer the question based solely on the content provided in the PDF. If the answer is not present in the content, respond with 'Answer not found.' 
+    You are an intelligent assistant capable of understanding and processing languages English, and {language}. Your task is to answer the question based on the content provided in the PDF. Answer the question with sufficient content available in the pdf. if answer is not present in the pdf type 'answer not found in pdf'. 
 
     Content: 
     {context} 
