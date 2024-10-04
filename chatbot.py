@@ -23,7 +23,16 @@ st.markdown("""
 }          
 </style>""", unsafe_allow_html= True)
 
-st.header('PDF READER CHATBOT')
+st.markdown("""      
+### Ask question like
+- what is/are content of the pdf?
+- what is the last date?
+- what are Paper and printing specifications?
+- Contact details for submission inquiries,  etc.
+""")
+
+st.header('PDF READER CHATBOT FOR TENDERS')
+
 
 with st.sidebar:
     st.header("Menu:")
