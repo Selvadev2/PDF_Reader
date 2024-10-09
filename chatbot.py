@@ -24,7 +24,7 @@ st.markdown("""
 </style>""", unsafe_allow_html= True)
 
 st.markdown("""      
-### Ask question like
+### Ask question related to
 - Penalties for Delay
 - Pre Qualification Criteria
 - Due date & Last offline tender submission date
