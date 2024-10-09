@@ -17,7 +17,7 @@ import os
 import tempfile
 
 
-# pytesseract.pytesseract.tesseract_cmd = r'C:/Program Files/Tesseract-OCR/tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = r'C:/Program Files/Tesseract-OCR/tesseract.exe'
 
 
 # extract all the pdfs
@@ -33,10 +33,11 @@ def extract_pdf(files, language):
         with tempfile.NamedTemporaryFile(delete=False) as temp_file:
             temp_file.write(uploaded_file.read())
             temp_file_path = temp_file.name
-            pages = convert_from_path(temp_file_path, dpi= 200)#poppler_path= "C:/Users/DIPL/poppler-24.07.0/Library/bin"
+            pages = convert_from_path(temp_file_path, dpi= 200,poppler_path= "C:/Users/DIPL/poppler-24.07.0/Library/bin")
             for i in pages:
                 text += pytesseract.image_to_string(i, lang= language_str) 
         os.remove(temp_file_path)
+        print(f"+++++++++++++++{text}+++++++++++++++++++++++++")
     return text
 
 
@@ -124,15 +125,16 @@ def model_openai(api_key_openai):
 
     Answer (in {language} and in English):
     """
-    model = ChatOpenAI(model_name = "gpt-3.5-turbo", openai_api_key = api_key_openai)
+    model = ChatOpenAI(model_name = "gpt-3.5-turbo-0125", openai_api_key = api_key_openai)
     prompt_temp = PromptTemplate(template= prompt, input_variables= ['context', 'question', 'language'])
     chain = load_qa_chain(llm = model, chain_type= "stuff",prompt = prompt_temp)
     return chain
-
-def run_chain_openai(user_question, language, api_key_openai):
+    
+def run_chain_openai(user_question, language, api_key_openai, index_file="faiss_index_openai"):
     embedding = OpenAIEmbeddings(model = "text-embedding-ada-002", openai_api_key= api_key_openai)
     vector_load = FAISS.load_local("faiss_index_openai", embedding,allow_dangerous_deserialization = True)
     doc = vector_load.similarity_search(user_question)
+    print(f"------{doc}-------")
     chain = model_openai(api_key_openai)
     response = chain({'input_documents':doc, "question": user_question, 'language': language}, return_only_outputs=True)
     return response["output_text"]
