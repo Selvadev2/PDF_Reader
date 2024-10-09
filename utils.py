@@ -59,14 +59,20 @@ def model(api_key):
     The extractor should identify keywords and phrases like 'printing services,' 'paper procurement,' 'security printing,' 'supply of paper materials,' 
     and 'request for quotations (RFQ)' for printing or related services. It should capture critical details, such as:
 
-    Tender ID or Reference Number
-    Paper and printing specifications
-    Security printing requirements
-    Delivery timelines and conditions
-    Bid submission deadlines
-    Contact details for submission inquiries
-    Eligibility and compliance criteria
-    Instructions for suppliers and bidders
+    - Penalties for Delay
+    - Pre Qualification Criteria
+    - Due date & Last offline tender submission date
+    - Terms and Conditions of tender
+    - Delivery Time and Place ,Packing details
+    - Tender Fee EMD And Security Deposit
+    - Financial Turnover Requirement for Bidders
+    - Specifications
+    - Required Documents for Bidders
+    - Address
+    - Specification
+    - "Delivery Place,Contact Details,Contact Details,Pre-bid Meeting,Estimated Cost,
+       IBA Required,Summarize:,Required Document,Sample Printing Details"
+    - Tender Schedule
     The tool should also process documents in both English and {language}, ensuring accurate extraction even when documents contain mixed languages.
     if answer is not present in the pdf don't give wrong answers type 'answer not found in pdf'. 
     if the user has provided an unclear or vague question: "{question}".
@@ -105,13 +111,20 @@ def model_openai(api_key_openai):
     The extractor should identify keywords and phrases like 'printing services,' 'paper procurement,' 'security printing,' 'supply of paper materials,' 
     and 'request for quotations (RFQ)' for printing or related services. It should capture critical details, such as:
 
-    Tender ID or Reference Number
-    Paper and printing specifications
-    Security printing requirements
-    Delivery timelines and conditions
-    Bid submission deadlines
-    Eligibility and compliance criteria
-    Instructions for suppliers and bidders
+    - Penalties for Delay
+    - Pre Qualification Criteria
+    - Due date & Last offline tender submission date
+    - Terms and Conditions of tender
+    - Delivery Time and Place ,Packing details
+    - Tender Fee EMD And Security Deposit
+    - Financial Turnover Requirement for Bidders
+    - Specifications
+    - Required Documents for Bidders
+    - Address
+    - Specification
+    - "Delivery Place,Contact Details,Contact Details,Pre-bid Meeting,Estimated Cost,
+       IBA Required,Summarize:,Required Document,Sample Printing Details"
+    - Tender Schedule
     The tool should also process documents in both English and {language}, ensuring accurate extraction even when documents contain mixed languages.
     if answer is not present in the pdf don't give wrong answers type 'answer not found in pdf'. 
     if the user has provided an unclear or vague question: "{question}".
