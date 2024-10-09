@@ -74,7 +74,7 @@ if prompt := st.chat_input("ask something"):
         if model_selection == 'gemini':
             response = run_chain(user_question = prompt,  language=language, api_key_google = api_key_google)
         else:
-            response = run_chain_openai(user_question = prompt, language=language, api_key_google = api_key_openai)
+            response = run_chain_openai(user_question = prompt, language=language, api_key_openai = api_key_openai)
 
     with st.chat_message("assistant"):
         st.markdown(response)
