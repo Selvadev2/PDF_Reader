@@ -25,10 +25,20 @@ st.markdown("""
 
 st.markdown("""      
 ### Ask question like
-- what is/are content of the pdf?
-- what is the last date?
-- what are Paper and printing specifications?
-- Contact details for submission inquiries,  etc.
+- Penalties for Delay
+- Pre Qualification Criteria
+- Due date & Last offline tender submission date
+- Terms and Conditions of tender
+- Delivery Time and Place ,Packing details
+- Tender Fee EMD And Security Deposit
+- Financial Turnover Requirement for Bidders
+- Specifications
+- Required Documents for Bidders
+- Address
+- Specification
+- "Delivery Place,Contact Details,Contact Details,Pre-bid Meeting,Estimated Cost,
+    IBA Required,Summarize:,Required Document,Sample Printing Details"
+- Tender Schedule
 """)
 
 st.header('PDF READER CHATBOT FOR TENDERS')
