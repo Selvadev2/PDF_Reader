@@ -10,7 +10,7 @@ import google.generativeai as Genai
 from langchain_community.vectorstores import FAISS
 from langchain_openai import ChatOpenAI
 from langchain_openai import OpenAI
-from langchain.chains.question_answering import load_qa_chain
+from langchain.chains.question_answering import create_qa_chain
 from langchain_core.prompts import PromptTemplate
 import numpy as np 
 import os
@@ -88,7 +88,7 @@ def model(api_key):
     """
     model = ChatGoogleGenerativeAI(model = "gemini-pro", google_api_key = api_key)
     prompt_temp = PromptTemplate(template= prompt, input_variables= ['context', 'question', 'language'])
-    chain = load_qa_chain(llm = model, chain_type= "stuff",prompt = prompt_temp)
+    chain = create_qa_chain(llm = model, prompt = prompt_temp)
     return chain
 
 def run_chain(user_question, language, api_key_google):
@@ -139,7 +139,7 @@ def model_openai(api_key_openai):
     """
     model = ChatOpenAI(model_name = "gpt-3.5-turbo-0125", openai_api_key = api_key_openai)
     prompt_temp = PromptTemplate(template= prompt, input_variables= ['context', 'question', 'language'])
-    chain = load_qa_chain(llm = model, prompt = prompt_temp)
+    chain = create_qa_chain(llm = model, prompt = prompt_temp)
     return chain
     
 def run_chain_openai(user_question, language, api_key_openai, index_file="faiss_index_openai"):
@@ -147,6 +147,6 @@ def run_chain_openai(user_question, language, api_key_openai, index_file="faiss_
     vector_load = FAISS.load_local("faiss_index_openai", embedding,allow_dangerous_deserialization = True)
     doc = vector_load.similarity_search(user_question)
     chain = model_openai(api_key_openai)
-    response = chain({'input_documents':doc, "question": user_question, 'language': language}, return_only_outputs=True)
+    response = chain.invoke({'input_documents':doc, "question": user_question, 'language': language}, return_only_outputs=True)
     return response["output_text"]
 
