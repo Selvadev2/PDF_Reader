@@ -10,7 +10,7 @@ import google.generativeai as Genai
 from langchain_community.vectorstores import FAISS
 from langchain_openai import ChatOpenAI
 from langchain_openai import OpenAI
-from langchain.chains.question_answering import create_qa_chain
+from langchain.chains import create_qa_chain
 from langchain_core.prompts import PromptTemplate
 import numpy as np 
 import os
