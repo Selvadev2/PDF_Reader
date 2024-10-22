@@ -96,7 +96,7 @@ def run_chain(user_question, language, api_key_google):
     vector_load = FAISS.load_local("faiss_index_google", embedded,allow_dangerous_deserialization = True)
     doc = vector_load.similarity_search(user_question)
     chain = model(api_key_google)
-    response = chain({'input_documents':doc, "question": user_question, 'language': language}, return_only_outputs=True)
+    response = chain.invoke({'input_documents':doc, "question": user_question, 'language': language}, return_only_outputs=True)
     return response["output_text"]
 
 
