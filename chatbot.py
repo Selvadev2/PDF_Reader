@@ -7,7 +7,7 @@ from utils import extract_pdf, text_splitter, embedding, embedding_openai, run_c
 
 
 st.set_page_config(page_title= 'pdf_reader_chatbot', layout= "wide")
-
+st.title('PDF Reader Chatbot')
 api_key_google = st.secrets["api_key_g"] # os.getenv("api_key_g")
 api_key_openai = st.secrets["api_key_o"] # os.getenv("api_key_o")
 
@@ -41,7 +41,7 @@ st.markdown("""
 - Tender Schedule
 """)
 
-st.header('PDF READER CHATBOT FOR TENDERS')
+# st.header('PDF READER CHATBOT FOR TENDERS')
 
 
 with st.sidebar:
