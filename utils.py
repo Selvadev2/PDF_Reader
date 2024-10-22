@@ -88,7 +88,7 @@ def model(api_key):
     """
     model = ChatGoogleGenerativeAI(model = "gemini-pro", google_api_key = api_key)
     prompt_temp = PromptTemplate(template= prompt, input_variables= ['context', 'question', 'language'])
-    chain = load_qa_chain(llm = model, chain_type= "stuff",prompt = prompt_temp)
+    chain = load_qa_chain(llm = model, prompt = prompt_temp)
     return chain
 
 def run_chain(user_question, language, api_key_google):
