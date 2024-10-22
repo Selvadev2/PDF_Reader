@@ -10,7 +10,7 @@ import google.generativeai as Genai
 from langchain_community.vectorstores import FAISS
 from langchain_openai import ChatOpenAI
 from langchain_openai import OpenAI
-from langchain.chains import create_qa_chain
+from langchain.chains.question_answering import load_qa_chain
 from langchain_core.prompts import PromptTemplate
 import numpy as np 
 import os
@@ -88,7 +88,7 @@ def model(api_key):
     """
     model = ChatGoogleGenerativeAI(model = "gemini-pro", google_api_key = api_key)
     prompt_temp = PromptTemplate(template= prompt, input_variables= ['context', 'question', 'language'])
-    chain = create_qa_chain(llm = model, prompt = prompt_temp)
+    chain = load_qa_chain(llm = model, chain_type= "stuff",prompt = prompt_temp)
     return chain
 
 def run_chain(user_question, language, api_key_google):
@@ -139,7 +139,7 @@ def model_openai(api_key_openai):
     """
     model = ChatOpenAI(model_name = "gpt-3.5-turbo-0125", openai_api_key = api_key_openai)
     prompt_temp = PromptTemplate(template= prompt, input_variables= ['context', 'question', 'language'])
-    chain = create_qa_chain(llm = model, prompt = prompt_temp)
+    chain = load_qa_chain(llm = model, prompt = prompt_temp)
     return chain
     
 def run_chain_openai(user_question, language, api_key_openai, index_file="faiss_index_openai"):
