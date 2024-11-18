@@ -25,9 +25,9 @@ st.markdown("""
 </style>""", unsafe_allow_html= True)
 
 
-names = ["software department","tender department"]
-usernames = ["software", "tender"]
-passwords = ["s12345", "t12345"]  
+names = ["software@scube.net.in","tender@scube.net.in", "ankit@scube.net.in","ceo@devharshinfotech.com","bhavin@scube.net.in"]
+usernames = ["software", "tender","ankit","waman","bhavin"]
+passwords = ["s12345", "t12345", "a1234","w1234","b123"]  
 
 
 hashed_passwords = stauth.Hasher(passwords).generate()
